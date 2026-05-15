@@ -7,9 +7,14 @@ export default function Home() {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [editId, setEditId] = useState(null);
+  const [mounted, setMounted] = useState(false);
 
-// Purana localhost hata kar ye naya URL dalo
-const API_URL = "";
+  const API_URL = "https://admin-penal-xmer.vercel.app/products";
+
+  useEffect(() => {
+    setMounted(true);
+    fetchData();
+  }, []);
 
   const fetchData = async () => {
     try {
@@ -20,7 +25,7 @@ const API_URL = "";
     }
   };
 
-  useEffect(() => { fetchData(); }, []);
+  if (!mounted) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

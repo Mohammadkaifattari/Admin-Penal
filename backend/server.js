@@ -12,21 +12,17 @@ const DATA_FILE = path.join(__dirname, 'products.json');
 app.use(cors());
 app.use(express.json());
 
-// Helper function to read data from JSON file
-const readData = () => {
-    const data = fs.readFileSync(DATA_FILE);
-    return JSON.parse(data);
-};
+// Temporary in-memory storage for Vercel (since Vercel is read-only)
+let products = [
+    { id: "1", name: "Sample Product", price: "100", description: "This is a sample" }
+];
 
-// Helper function to write data to JSON file
+// Helper functions (simplified for in-memory)
+const readData = () => products;
 const writeData = (data) => {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+    products = data;
+    console.log("Data updated in memory");
 };
-
-// Check if JSON file exists, if not create empty array
-if (!fs.existsSync(DATA_FILE)) {
-    writeData([]);
-}
 
 app.get('/', (req, res) => {
     res.send("E-commerce API is running with JSON storage!");
