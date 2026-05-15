@@ -44,6 +44,8 @@ export default function Home() {
   };
 
   const deleteProduct = async (id) => {
+
+    if (editId !== null) return
     if(confirm("Pakka delete karna hai?")) {
       await axios.delete(`${API_URL}/${id}`);
       fetchData();
