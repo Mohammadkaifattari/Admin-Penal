@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = 5000;
+const DATA_FILE = path.join(__dirname, 'products.json');
 
 
 
@@ -70,4 +72,6 @@ app.delete('/products/:id', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server started on http://localhost:${PORT}`);
 });
+
+module.exports = app;
 
