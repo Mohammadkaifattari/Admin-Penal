@@ -9,7 +9,7 @@ export default function Home() {
   const [editId, setEditId] = useState(null);
 
 // Purana localhost hata kar ye naya URL dalo
-const API_URL = "https://6a06ea5ec83ba8ad9b3e227b.mockapi.io/products";
+const API_URL = "";
 
   const fetchData = async () => {
     try {
