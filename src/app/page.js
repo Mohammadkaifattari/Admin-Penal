@@ -8,7 +8,8 @@ export default function Home() {
   const [price, setPrice] = useState('');
   const [editId, setEditId] = useState(null);
 
-  const API_URL = "http://localhost:5000/products";
+// Purana localhost hata kar ye naya URL dalo
+const API_URL = "https://6a06ea5ec83ba8ad9b3e227b.mockapi.io/products";
 
   const fetchData = async () => {
     try {

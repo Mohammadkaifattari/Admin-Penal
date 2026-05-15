@@ -6,7 +6,7 @@ const app = express();
 const PORT = 5000;
 
 
-// darmiyan
+
 app.use(cors());
 app.use(express.json());
 
